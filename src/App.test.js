@@ -59,8 +59,9 @@ it("renders counter display starts at zero", () => {
 });
 
 it("renders clicking button increments counter display", () => {
-  const counter = 7;
-  const wrapper = setUp(null, { counter });
+  const counter = 0;
+  const negativeWarning = "warning";
+  const wrapper = setUp(null, { counter, negativeWarning });
 
   // Find button and click
   const button = findByTestAttr(wrapper, "increment-button");
@@ -69,6 +70,10 @@ it("renders clicking button increments counter display", () => {
   // Find counter and test value
   const counterDisplay = findByTestAttr(wrapper, "counter-display");
   expect(counterDisplay.text()).toContain(counter + 1);
+
+  //finds negativeWarning and test value
+  const negativeItem = findByTestAttr(wrapper, "negative-warning");
+  expect(negativeItem.text()).toContain("");
 });
 
 it("renders clicking decrement button decrements counter display", () => {

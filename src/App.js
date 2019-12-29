@@ -12,6 +12,7 @@ class App extends Component {
     };
 
     this.handleDecrementButton = this.handleDecrementButton.bind(this);
+    this.handleIncrementButton = this.handleIncrementButton.bind(this);
   }
 
   handleDecrementButton() {
@@ -20,6 +21,13 @@ class App extends Component {
     } else {
       this.setState({ counter: this.state.counter - 1 });
     }
+  }
+
+  handleIncrementButton() {
+    // if (this.state.negativeWarning !== "")
+    //   this.setState({ negativeWarning: "" });
+
+    this.setState({ counter: this.state.counter + 1 });
   }
 
   render() {
@@ -33,7 +41,7 @@ class App extends Component {
         </h3>
         <button
           data-test="increment-button"
-          onClick={() => this.setState({ counter: this.state.counter + 1 })}
+          onClick={() => this.handleIncrementButton()}
         >
           Increment
         </button>
